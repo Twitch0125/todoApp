@@ -9,8 +9,25 @@ class list{
     constructor(name,...tasks){
         this.name = name;
         this.tasks = tasks;
-        this.addTask = (task) => {};
+        this.addTask = (task) => {
+            tasks.push(task)
+        };
         this.deleteTask = (task) => {};
-        this.renameList = (name) => {};
+        /*TODO:
+        create addTask()
+        create deleteTask()
+        */
     }
+}
+class task{
+    constructor(name){
+        this.name = name;
+        this.status = false;
+    }
+}
+
+
+
+function rename(){
+
 }
