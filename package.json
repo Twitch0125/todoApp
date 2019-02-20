@@ -1,0 +1,24 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "todoApp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Twitch0125/todoApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Twitch0125/todoApp/issues"
+  },
+  "homepage": "https://github.com/Twitch0125/todoApp#readme",
+  "dependencies": {
+    "node-sass": "^4.11.0",
+    "scss": "^0.2.4"
+  }
+}
