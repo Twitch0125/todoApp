@@ -1,3 +1,11 @@
 *{
-    font-family: 'ubuntu', 'sans-serif';
+    font-family: 'Ubuntu', 'sans-serif';
 }
+
+.mdl-layout-transparent {
+    background: url('../images/light-bulb.jpg') center / cover;
+  }
+  .mdl-layout-transparent .mdl-layout__header,
+  .mdl-layout-transparent .mdl-layout__drawer-button {
+    color: rgb(14, 14, 14);
+  }
