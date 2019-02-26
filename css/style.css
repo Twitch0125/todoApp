@@ -1,9 +1,17 @@
-* {
-  font-family: 'Ubuntu', 'sans-serif'; }
-
 .mdl-layout-transparent {
   background: url("../images/light-bulb.jpg") center/cover; }
 
 .mdl-layout-transparent .mdl-layout__header,
 .mdl-layout-transparent .mdl-layout__drawer-button {
-  color: #0e0e0e; }
+  color: rgba(0, 0, 0, 0.87); }
+
+.list-creation {
+  width: 75%;
+  background-color: white;
+  margin: auto; }
+  .list-creation .container {
+    margin-left: 10px;
+    margin-top: 10px; }
+
+.my-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }

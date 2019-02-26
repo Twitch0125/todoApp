@@ -6,33 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.yellow-indigo.min.css" />
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-red.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script defer src="js/main.js"></script>
-    
+
 </head>
 
 <body>
     <div class="mdl-layout-transparent mdl-layout mdl-js-layout">
         <header class="mdl-layout__header mdl-layout__header--transparent">
-            <div class="mdl-layout-icon"></div>
             <div class="mdl-layout__header-row">
-                <span class="mdl-layout__title">TODO</span>
-                <div class="mdl-layout-spacer"></div>
+                <span class="mdl-layout-title"></span>
+            </div>
+            <div class="mdl-layout-spacer"> </div>
+            <div class="mdl-navigation">
+
             </div>
         </header>
+        <!-- start drawer -->
         <div class="mdl-layout__drawer">
             <span class="mdl-layout__title">Lists</span>
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="#">list 1</a>
+                <a class="mdl-navigation__link" href='#'>Test</a>
             </nav>
         </div>
+        <!-- end drawer -->
         <main class="mdl-layout__content">
-            <p>tasks</p>
-            <p>tasks</p>
-            <p>tasks</p>
+            <div class="list-creation my-shadow">
+                <div class="container">
+                    <h3 class="display-2">Create a List</h3>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input onkeyup="checkKey(event)" class="mdl-textfield__input" type="text" id="listName">
+                        <label class="mdl-textfield__label" for="sample3">List Name</label>
+                    </div>
+                    <!-- Colored FAB button -->
+                    <button onclick='' class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                        <i class="material-icons">add</i>
+                    </button>
+
+                </div>
+            </div>
+
         </main>
     </div>
 

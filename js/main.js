@@ -1,10 +1,3 @@
-//function to clear list creation field on click
-function clearListInput() {
-    let listInput = document.getElementById('listInput');
-    listInput.innerHTML = '';
-    listInput.style.backgroundColor = '#dadfea';
-}
-
 class List {
     constructor(name, ...tasks) {
         this.name = name;
@@ -54,10 +47,17 @@ class Description {
     //TODO: create editDate(), create editContent()
 }
 
-let list = new List(`todo`);
+function createTask(){
+    let myVal = $('#listName').val();
+    let newList = new List(myVal);
+    let myJSON = JSON.stringify(newList);
+    localStorage.setItem(`list, ${myJSON}`)
+}
 
-let task = new Task('kaleb', 'is k o o l');
-
-list.addTask(task);
-list.deleteTask(task);
-
+function checkKey(event) {
+    switch (event.which) {
+        case 13:
+            createTask();
+            break
+    }
+}
