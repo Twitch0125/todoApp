@@ -47,17 +47,68 @@ class Description {
     //TODO: create editDate(), create editContent()
 }
 
-function createTask(){
+function createList(){
     let myVal = $('#listName').val();
     let newList = new List(myVal);
     let myJSON = JSON.stringify(newList);
-    localStorage.setItem(`list, ${myJSON}`)
+    //check if name is blank
+    if(myVal == ''){
+        return 0;
+    }
+    localStorage.setItem(myVal, myJSON);
+    console.log(`set local storage: ${myVal}, ${myJSON}`);
+    //create link in navigation
+    $('.mdl-navigation').append(`
+        <a class="mdl-navigation__link" onclick="displayList(${myVal})" href="#"> ${myVal} </a>
+    `);
+
+    //clear input
+    $('#listName').val('');
+    //reset material textfield
+    $('#listName').parent().attr('class', 'mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-focused')
+
+    //show snackbar
+    notification.MaterialSnackbar.showSnackbar(data);
 }
 
+//delete list
+function deleteList(list){
+
+}
+
+//display list
+function displayList(list){
+    $('.list-display').css('display', 'block');
+    $('.list-display').append(`
+        
+    `)
+}
+
+//load lists in navigation
+function loadLists(){
+    for(let i = 0; i < localStorage.length; i++){
+        //create link in html for list
+        list = localStorage.key(i);
+        $('.mdl-navigation').append(`
+        <a class="mdl-navigation__link" onclick="displayList(${list})" href="#"> ${list} </a>
+        `);
+    }
+}
+
+//checks if ENTER was pressed
 function checkKey(event) {
     switch (event.which) {
         case 13:
-            createTask();
+            createList();
             break
     }
 }
+
+//material snackbar
+var notification = document.querySelector('.mdl-js-snackbar');
+var data = {
+  message: 'List Created',
+  actionHandler: {},
+  actionText: 'Undo',
+  timeout: 1500
+};
