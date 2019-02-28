@@ -17,7 +17,7 @@
 </head>
 
 <body onload="loadLists()">
-    <div class="mdl-layout-transparent mdl-layout mdl-js-layout">
+    <div class="mdl-layout-transparent mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
         <header class="mdl-layout__header mdl-layout__header--transparent">
             <div class="mdl-layout__header-row" id="myIcon">
                 <span class="mdl-layout-title"></span>
@@ -39,8 +39,8 @@
                         <input onkeyup="checkKey(event)" class="mdl-textfield__input" type="text" id="listName">
                         <label class="mdl-textfield__label">List Name</label>
                     </div>
-                    <!-- Colored FAB button -->
-                    <button onclick='createList()' class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                    <!-- Colored button -->
+                    <button onclick='createList()' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                         <i class="material-icons">add</i>
                     </button>
 
@@ -48,12 +48,13 @@
             </div>
 
             <div class="container list-display my-shadow">
-                <div class=""></div>
+
 
             </div>
 
         </main>
     </div>
+    <!-- snackbar popup-->
     <div class="mdl-snackbar mdl-js-snackbar">
         <div class="mdl-snackbar__text"></div>
         <button type="button" class="mdl-snackbar__action"></button>

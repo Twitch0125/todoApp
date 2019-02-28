@@ -47,12 +47,12 @@ class Description {
     //TODO: create editDate(), create editContent()
 }
 
-function createList(){
+function createList() {
     let myVal = $('#listName').val();
     let newList = new List(myVal);
     let myJSON = JSON.stringify(newList);
     //check if name is blank
-    if(myVal == ''){
+    if (myVal == '') {
         return 0;
     }
     localStorage.setItem(myVal, myJSON);
@@ -72,21 +72,30 @@ function createList(){
 }
 
 //delete list
-function deleteList(list){
+function deleteList(list) {
 
 }
 
 //display list
-function displayList(list){
+function displayList(list) {
+    //get list from local storage
+    let listObj = JSON.parse(list);
+
     $('.list-display').css('display', 'block');
+    // $('.list-creation').css('display', 'none');
     $('.list-display').append(`
-        
-    `)
+    <div class="list-display">
+        <h3 class="display-2"> ${listObj.name}</h3>
+    </div>
+    `);
 }
 
 //load lists in navigation
-function loadLists(){
-    for(let i = 0; i < localStorage.length; i++){
+function loadLists() {
+    //reset area
+    $('.mdl-navigation').html(' ');
+    //display new lists
+    for (let i = 0; i < localStorage.length; i++) {
         //create link in html for list
         list = localStorage.key(i);
         $('.mdl-navigation').append(`
@@ -100,15 +109,22 @@ function checkKey(event) {
     switch (event.which) {
         case 13:
             createList();
+            loadLists();
             break
     }
 }
 
+
+
 //material snackbar
 var notification = document.querySelector('.mdl-js-snackbar');
 var data = {
-  message: 'List Created',
-  actionHandler: {},
-  actionText: 'Undo',
-  timeout: 1500
+    message: 'List Created',
+    actionHandler: function () {
+        notification.MaterialSnackbar.showSnackbar(obj = {
+            message: 'Undone'
+        })
+    },
+    actionText: 'Undo',
+    timeout: 2500
 };
