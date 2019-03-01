@@ -57,11 +57,7 @@ function createList() {
     }
     localStorage.setItem(myVal, myJSON);
     console.log(`set local storage: ${myVal}, ${myJSON}`);
-    //create link in navigation
-    $('.mdl-navigation').append(`
-        <a class="mdl-navigation__link" onclick="displayList(${myVal})" href="#"> ${myVal} </a>
-    `);
-
+    
     //clear input
     $('#listName').val('');
     //reset material textfield
@@ -99,18 +95,18 @@ function loadLists() {
         //create link in html for list
         list = localStorage.key(i);
         $('.mdl-navigation').append(`
-        <a class="mdl-navigation__link" onclick="displayList(${list})" href="#"> ${list} </a>
+        <a class="mdl-navigation__link" onclick="displayList(this.value)" href="#"> ${list} </a>
         `);
     }
 }
 
 //checks if ENTER was pressed
 function checkKey(event) {
-    switch (event.which) {
-        case 13:
+    switch (event.key) {
+        case 'Enter':
             createList();
             loadLists();
-            break
+            break;
     }
 }
 
