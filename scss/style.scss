@@ -1,4 +1,4 @@
-$myFont: Arvo,sans-serif;
+$myFont: Montserrat,sans-serif;
 .mdl-layout-transparent {
   background: url('../images/light-bulb.jpg') center / cover;
 }
@@ -8,17 +8,18 @@ $myFont: Arvo,sans-serif;
   color: rgba(0, 0, 0, 0.87);
 }
 
+.my-background{
+  background-color: white;
+}
+
 .list {
-  margin-left: 2%;
-  margin-top: 2%;
-  margin-right: 2%;
+  margin-left: 1%;
 }
 
 .container {
   width: 95%;
   margin: auto;
   margin-top: 15px;
-  background-color: white;
 }
 
 .my-shadow {
@@ -29,6 +30,8 @@ $myFont: Arvo,sans-serif;
 #list-display {
   display: none;
 }
+.list-display {
+}
 
 .my-font{
   font-family: $myFont;
@@ -37,4 +40,9 @@ $myFont: Arvo,sans-serif;
 
 table{
   font-family: $myFont;
+}
+
+.center-grid{
+  justify-content: center;
+  align-items: center;
 }

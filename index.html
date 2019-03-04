@@ -7,13 +7,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-red.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat|Roboto|Ubuntu|Ubuntu+Condensed|Poiret+One|Zilla+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat|Roboto|Ubuntu|Ubuntu+Condensed|Poiret+One|Zilla+Slab"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script defer src="js/main.js"></script>
-
 </head>
 
 <body onload="loadLists()">
@@ -36,52 +36,112 @@
         </div>
         <!-- end drawer -->
         <main class="mdl-layout__content">
-            <div class="container my-shadow">
-                <div class="list my-font" id="list-creation">
-                    <h3 class="display-2 my-font">Create a List</h3>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input onkeyup="checkKey(event)" class="mdl-textfield__input" type="text" id="listName">
-                        <label class="mdl-textfield__label my-font">List Name</label>
-                    </div>
-                    <!-- Colored button -->
-                    <button onclick='createList()' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                        <i class="material-icons">add</i>
-                    </button>
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--12-col mdl-cell--middle my-background mdl-shadow--2dp">
+                    <div class="list my-font" id="list-creation">
+                        <h3 class="display-2 my-font">Create a List</h3>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input onkeyup="checkKey(event)" class="mdl-textfield__input" type="text" id="listName">
+                            <label class="mdl-textfield__label my-font">List Name</label>
+                        </div>
+                        <!-- Colored button -->
+                        <button onclick='createList()' id='add-btn' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                            <div class="mdl-tooltip" data-mdl-for='add-btn'>Add List</div>
 
+                            <i class="material-icons">add</i>
+                        </button>
+
+                    </div>
                 </div>
             </div>
 
-            <div class="container list-display my-shadow" id="list-display">
-                <!-- will load a MDL List with list properties and area for adding tasks -->
-                <div class="container">
-                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-                        <thead>
-                          <tr>
-                            <th class="mdl-data-table__cell--non-numeric">Material</th>
-                            <th>Quantity</th>
-                            <th>Unit price</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
-                            <td>25</td>
-                            <td>$2.90</td>
-                          </tr>
-                          <tr>
-                            <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
-                            <td>50</td>
-                            <td>$1.25</td>
-                          </tr>
-                          <tr>
-                            <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
-                            <td>10</td>
-                            <td>$2.35</td>
-                          </tr>
-                        </tbody>
-                      </table>
+
+            <div id="list-display">
+                <!-- will load a grid of MDL Lists with list properties and area for adding tasks -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--12-col my-background mdl-shadow--2dp">
+                        <h3 class="list display-2 my-font">LIST NAME</h2>
+                    </div>
                 </div>
-                
+
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col">
+                        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                            <thead>
+                                <tr>
+                                    <th class="mdl-data-table__cell--non-numeric">Material</th>
+                                    <th>Finish Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
+                                    <td>04/04/19</td>
+                                </tr>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
+                                    <td>$1.25</td>
+                                </tr>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
+                                    <td>$2.35</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col">
+                        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                            <thead>
+                                <tr>
+                                    <th class="mdl-data-table__cell--non-numeric">Material</th>
+                                    <th>Finish Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
+                                    <td>04/04/19</td>
+                                </tr>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
+                                    <td>$1.25</td>
+                                </tr>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
+                                    <td>$2.35</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col">
+                        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                            <thead>
+                                <tr>
+                                    <th class="mdl-data-table__cell--non-numeric">Material</th>
+                                    <th>Finish Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
+                                    <td>04/04/19</td>
+                                </tr>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
+                                    <td>$1.25</td>
+                                </tr>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
+                                    <td>$2.35</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+
+
             </div>
 
         </main>

@@ -5,16 +5,16 @@
 .mdl-layout-transparent .mdl-layout__drawer-button {
   color: rgba(0, 0, 0, 0.87); }
 
+.my-background {
+  background-color: white; }
+
 .list {
-  margin-left: 2%;
-  margin-top: 2%;
-  margin-right: 2%; }
+  margin-left: 1%; }
 
 .container {
   width: 95%;
   margin: auto;
-  margin-top: 15px;
-  background-color: white; }
+  margin-top: 15px; }
 
 .my-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
@@ -23,8 +23,12 @@
   display: none; }
 
 .my-font {
-  font-family: Arvo, sans-serif;
+  font-family: Montserrat, sans-serif;
   font-weight: lighter; }
 
 table {
-  font-family: Arvo, sans-serif; }
+  font-family: Montserrat, sans-serif; }
+
+.center-grid {
+  justify-content: center;
+  align-items: center; }
