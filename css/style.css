@@ -6,15 +6,25 @@
   color: rgba(0, 0, 0, 0.87); }
 
 .list {
-  width: 75%;
-  background-color: white;
-  margin: auto; }
-  .list .container {
-    margin-left: 10px;
-    margin-top: 10px; }
+  margin-left: 2%;
+  margin-top: 2%;
+  margin-right: 2%; }
+
+.container {
+  width: 95%;
+  margin: auto;
+  margin-top: 15px;
+  background-color: white; }
 
 .my-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
 
-.list-display {
+#list-display {
   display: none; }
+
+.my-font {
+  font-family: Arvo, sans-serif;
+  font-weight: lighter; }
+
+table {
+  font-family: Arvo, sans-serif; }

@@ -65,6 +65,9 @@ function createList() {
 
     //show snackbar
     notification.MaterialSnackbar.showSnackbar(data);
+
+    //refresh lists
+    loadLists();
 }
 
 //delete list
@@ -74,16 +77,23 @@ function deleteList(list) {
 
 //display list
 function displayList(list) {
+    console.log(list);
+    
     //get list from local storage
-    let listObj = JSON.parse(list);
+    let listObj = JSON.parse(localStorage.getItem(`${list}`));
 
-    $('.list-display').css('display', 'block');
-    // $('.list-creation').css('display', 'none');
-    $('.list-display').append(`
-    <div class="list-display">
-        <h3 class="display-2"> ${listObj.name}</h3>
-    </div>
-    `);
+    //show the hidden list-display div
+    $('#list-display').css('display', 'block');
+    //hide list creation
+    $('.list-creation').css('display', 'none');
+    //load list properties
+    $('#list-display').html(
+    //     `
+    // <div class="list-display">
+    //     <h3 class="display-2"> ${listObj.name}</h3>
+    // </div>
+    // `
+    );
 }
 
 //load lists in navigation
@@ -95,7 +105,7 @@ function loadLists() {
         //create link in html for list
         list = localStorage.key(i);
         $('.mdl-navigation').append(`
-        <a class="mdl-navigation__link" onclick="displayList(this.value)" href="#"> ${list} </a>
+        <a class="mdl-navigation__link" onclick="displayList('${list}')" href="#"> ${list} </a>
         `);
     }
 }
@@ -105,7 +115,6 @@ function checkKey(event) {
     switch (event.key) {
         case 'Enter':
             createList();
-            loadLists();
             break;
     }
 }

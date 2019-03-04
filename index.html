@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-red.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Montserrat|Roboto|Ubuntu|Ubuntu+Condensed|Poiret+One|Zilla+Slab" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
@@ -26,21 +26,22 @@
         </header>
         <!-- start drawer -->
         <div class="mdl-layout__drawer">
-            <span class="mdl-layout__title">Lists</span>
+            <span class="mdl-layout__title my-font">Lists</span>
             <nav class="mdl-navigation" id="lists">
             </nav>
+            <!-- temporary button... im tired of doing it in the console -->
             <div style='width:50px; height:50px;'>
                 <button onclick="localStorage.clear(), loadLists()">reset</button>
             </div>
         </div>
         <!-- end drawer -->
         <main class="mdl-layout__content">
-            <div class="list my-shadow">
-                <div class="container" id="list-creation">
-                    <h3 class="display-2">Create a List</h3>
+            <div class="container my-shadow">
+                <div class="list my-font" id="list-creation">
+                    <h3 class="display-2 my-font">Create a List</h3>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input onkeyup="checkKey(event)" class="mdl-textfield__input" type="text" id="listName">
-                        <label class="mdl-textfield__label">List Name</label>
+                        <label class="mdl-textfield__label my-font">List Name</label>
                     </div>
                     <!-- Colored button -->
                     <button onclick='createList()' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
@@ -50,9 +51,37 @@
                 </div>
             </div>
 
-            <div class="container list-display my-shadow">
-
-
+            <div class="container list-display my-shadow" id="list-display">
+                <!-- will load a MDL List with list properties and area for adding tasks -->
+                <div class="container">
+                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                        <thead>
+                          <tr>
+                            <th class="mdl-data-table__cell--non-numeric">Material</th>
+                            <th>Quantity</th>
+                            <th>Unit price</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
+                            <td>25</td>
+                            <td>$2.90</td>
+                          </tr>
+                          <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
+                            <td>50</td>
+                            <td>$1.25</td>
+                          </tr>
+                          <tr>
+                            <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
+                            <td>10</td>
+                            <td>$2.35</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+                
             </div>
 
         </main>
