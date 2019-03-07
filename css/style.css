@@ -32,3 +32,6 @@ table {
 .center-grid {
   justify-content: center;
   align-items: center; }
+
+.list-name {
+  text-transform: capitalize; }

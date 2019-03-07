@@ -30,8 +30,7 @@ $myFont: Montserrat,sans-serif;
 #list-display {
   display: none;
 }
-.list-display {
-}
+
 
 .my-font{
   font-family: $myFont;
@@ -45,4 +44,7 @@ table{
 .center-grid{
   justify-content: center;
   align-items: center;
+}
+.list-name{
+  text-transform: capitalize;
 }
