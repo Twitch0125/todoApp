@@ -19,9 +19,8 @@ class List {
 }
 
 class Task {
-  constructor(name, description) {
+  constructor(name) {
     this.name = name;
-    this.description = description;
     this.status = false; //if task is done or not
     this.id; //task's value in an array
   }
@@ -39,12 +38,9 @@ class Task {
   }
 }
 
-class Description {
-  constructor(date, content) {
-    this.date = date;
-    this.content = content;
-  }
-  //TODO: create editDate(), create editContent()
+//function to show list creation div
+function showCreateLists() {
+  $("#list-creation").css("display", "block");
 }
 
 function createList() {
@@ -57,7 +53,6 @@ function createList() {
   }
   localStorage.setItem(myVal, myJSON);
   console.log(`set local storage: ${myVal}, ${myJSON}`);
-
   //clear input
   $("#listName").val("");
   //reset material textfield
@@ -75,6 +70,23 @@ function createList() {
   loadLists();
 }
 
+function createTask() {
+  let myVal = $("#taskName").val();
+  let newTask = new Task(myVal);
+  //get current list
+  let listName = $(".list-name").html();
+  let list = JSON.parse(localStorage.getItem(`${listName}`));
+  //log what task is being pushed to given list
+  console.log(`pushing task: ${newTask.name} into list ${list.name}`);
+  //push task to list.tasks
+  list.tasks.push(newTask);
+  console.log(list);
+  //store list in localStorage with given list name
+  let myJSON = JSON.stringify(list);
+localStorage.setItem(listName, myJSON);
+
+}
+
 //delete list
 function deleteList(list) {}
 
@@ -90,8 +102,9 @@ function displayList(list) {
   //hide list creation
   $("#list-creation").css("display", "none");
   //load list name in list name element
-  $('.list-name').html(`${listObj.name}`);
-
+  $(".list-name").html(`${listObj.name}`);
+  //load create task thingy
+  $(".create-task").css("display", "block");
 }
 
 //load lists in navigation
@@ -112,9 +125,12 @@ function loadLists() {
 function checkKey(event, id) {
   switch (event.key) {
     case "Enter":
-        if(id == 'listName'){
-            createList();
-        }
+      if (id == "listName") {
+        createList();
+      }
+      if (id == "taskName") {
+        createTask();
+      }
       break;
   }
 }

@@ -35,3 +35,7 @@ table {
 
 .list-name {
   text-transform: capitalize; }
+
+.create-task {
+  display: none;
+  background-color: white; }

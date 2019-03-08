@@ -1,6 +1,6 @@
-$myFont: Montserrat,sans-serif;
+$myFont: Montserrat, sans-serif;
 .mdl-layout-transparent {
-  background: url('../images/light-bulb.jpg') center / cover;
+  background: url("../images/light-bulb.jpg") center / cover;
 }
 
 .mdl-layout-transparent .mdl-layout__header,
@@ -8,7 +8,7 @@ $myFont: Montserrat,sans-serif;
   color: rgba(0, 0, 0, 0.87);
 }
 
-.my-background{
+.my-background {
   background-color: white;
 }
 
@@ -24,27 +24,29 @@ $myFont: Montserrat,sans-serif;
 
 .my-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 }
 
 #list-display {
   display: none;
 }
 
-
-.my-font{
+.my-font {
   font-family: $myFont;
   font-weight: lighter;
 }
 
-table{
+table {
   font-family: $myFont;
 }
 
-.center-grid{
+.center-grid {
   justify-content: center;
   align-items: center;
 }
-.list-name{
+.list-name {
   text-transform: capitalize;
+}
+.create-task {
+  display: none;
+  background-color: white;
 }

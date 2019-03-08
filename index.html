@@ -33,6 +33,11 @@
             <div style='width:50px; height:50px;'>
                 <button onclick="localStorage.clear(), loadLists()">reset</button>
             </div>
+            <!-- create list button until I figure something better out -->
+            <!-- FIXME: fix top of list creation area when showCreateLists() is called -->
+            <button onclick="showCreateLists()"class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                Create List
+              </button>
         </div>
         <!-- end drawer -->
         <main class="mdl-layout__content">
@@ -50,11 +55,9 @@
 
                             <i class="material-icons">add</i>
                         </button>
-
                     </div>
                 </div>
             </div>
-
 
             <div id="list-display">
                 <!-- will load a grid of MDL Lists with list properties and area for adding tasks -->
@@ -63,44 +66,22 @@
                         <h3 class="list display-2 my-font list-name">LIST NAME</h2>
                     </div>
                 </div>
-
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--4-col">
-                        <div class="create-task">
-                            
+                        <div class="create-task mdl-shadow--2dp">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input onkeyup="checkKey(event, 'taskName')" class="mdl-textfield__input" type="text" id="taskName">
+                                <label class="mdl-textfield__label my-font">Task Name</label>
+                            </div>
+                            <button onclick="createTask()"
+                                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent create-task-btn">
+                                Create Task
+                            </button>
                         </div>
                         <!-- TODO: implement tables for tasks -->
-                        <!-- <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-                            <thead>
-                                <tr>
-                                    <th class="mdl-data-table__cell--non-numeric">Material</th>
-                                    <th>Finish Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
-                                    <td>04/04/19</td>
-                                </tr>
-                                <tr>
-                                    <td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
-                                    <td>$1.25</td>
-                                </tr>
-                                <tr>
-                                    <td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
-                                    <td>$2.35</td>
-                                </tr>
-                            </tbody>
-                        </table> -->
                     </div>
-                   
                 </div>
-
-
-
-
             </div>
-
         </main>
     </div>
     <!-- snackbar popup-->
