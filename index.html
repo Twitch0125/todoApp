@@ -35,9 +35,9 @@
             </div>
             <!-- create list button until I figure something better out -->
             <!-- FIXME: fix top of list creation area when showCreateLists() is called -->
-            <button onclick="showCreateLists()"class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+            <button onclick="showCreateLists()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
                 Create List
-              </button>
+            </button>
         </div>
         <!-- end drawer -->
         <main class="mdl-layout__content">
@@ -68,32 +68,24 @@
                 </div>
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--4-col">
-                        <div class="create-task mdl-shadow--2dp">
-                            <!-- <h3 class="display-2 my-font">Create a Task</h3>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input onkeyup="checkKey(event, 'taskName')" class="mdl-textfield__input" type="text" id="taskName">
-                                <label class="mdl-textfield__label my-font">Task Name</label>
-                            </div>
-                            <button onclick="createTask()"
-                                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent create-task-btn">
-                                Create Task
-                            </button> -->
-                        </div>
+
                         <!-- TODO: implement tables for tasks -->
-                        <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                        <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp">
                             <thead>
                                 <tr>
                                     <th class="mdl-data-table__cell--non-numeric list-name"></th>
-                                    <th>Date</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="task-table">
                                 <tr>
-                                    <td class="mdl-data-table__cell--non-numeric">Garbage</td>
-                                    <td class="mdl-data-table__cell--non-numeric">04/01</td>
-
+                                    <td class="mdl-data-table__cell--non-numeric">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input onkeyup="checkKey(event, 'taskName')" class="mdl-textfield__input"
+                                                type="text" id="taskName">
+                                            <label class="mdl-textfield__label my-font">Task Name</label>
+                                        </div>
+                                    </td>
                                 </tr>
-                                
                             </tbody>
                         </table>
                     </div>

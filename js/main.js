@@ -72,19 +72,36 @@ function createList() {
 
 function createTask() {
   let myVal = $("#taskName").val();
+  //check if the name is blank
+  if (myVal == "") {
+    return 0;
+  }
   let newTask = new Task(myVal);
   //get current list
   let listName = $(".list-name").html();
   let list = JSON.parse(localStorage.getItem(`${listName}`));
   //log what task is being pushed to given list
   console.log(`pushing task: ${newTask.name} into list ${list.name}`);
+  //assign task's ID, which is where its located in the array
+  newTask.id = list.tasks.length;
   //push task to list.tasks
   list.tasks.push(newTask);
   console.log(list);
+
   //store list in localStorage with given list name
   let myJSON = JSON.stringify(list);
-localStorage.setItem(listName, myJSON);
-
+  localStorage.setItem(listName, myJSON);
+  //display new task to table
+  loadTasks();
+  //clear input
+  $("#taskName").val("");
+  //reset material textfield
+  $("#taskName")
+    .parent()
+    .attr(
+      "class",
+      "mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-focused"
+    );
 }
 
 //delete list
@@ -105,6 +122,9 @@ function displayList(list) {
   $(".list-name").html(`${listObj.name}`);
   //load create task thingy
   $(".create-task").css("display", "block");
+
+  //load tasks
+  loadTasks();
 }
 
 //load lists in navigation
@@ -118,6 +138,24 @@ function loadLists() {
     $(".mdl-navigation").append(`
         <a class="mdl-navigation__link" onclick="displayList('${list}')" href="#"> ${list} </a>
         `);
+  }
+}
+
+//load task table in a list
+function loadTasks() {
+  //get current list
+  let listName = $(".list-name").html();
+  let list = JSON.parse(localStorage.getItem(`${listName}`));
+
+  //clear all task rows
+  $(".task").remove();
+  //display tasks in current list in the task table
+  for (let i = 0; i < list.tasks.length; i++) {
+    $(".task-table").append(`
+    <tr class="task">
+      <td class="mdl-data-table__cell--non-numeric">${list.tasks[i].name}</td>
+      </tr>
+    `);
   }
 }
 
