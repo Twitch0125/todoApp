@@ -74,8 +74,6 @@
                             <thead>
                                 <tr>
                                     <th class="mdl-data-table__cell--non-numeric list-name"></th>
-                                </tr>
-                            </thead>
                             <tbody class="task-table">
                                 <tr>
                                     <td class="mdl-data-table__cell--non-numeric">
@@ -83,11 +81,19 @@
                                             <input onkeyup="checkKey(event, 'taskName')" class="mdl-textfield__input"
                                                 type="text" id="taskName">
                                             <label class="mdl-textfield__label my-font">Task Name</label>
+
                                         </div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+                        <button onclick='editTasks()' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                            Edit Tasks
+                        </button>
+                        <button onclick='saveTasks()' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary save-btn">
+                            Save
+                        </button>
+
                     </div>
                 </div>
             </div>

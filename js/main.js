@@ -159,6 +159,21 @@ function loadTasks() {
   }
 }
 
+function editTasks() {
+  //add the "deleteable chip" from MDL to each task item
+  $(".task").append(`
+  <span onclick="deleteTask()" class="mdl-chip">
+  <span class="mdl-chip__text">Delete</span>
+  <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></a>
+</span>
+    `);
+  //make tasks editable
+  $(".task").attr("contenteditable", "true");
+
+  //show "save" button.
+  $(".save-btn").css("display", "inline");
+}
+
 //checks if ENTER was pressed, and the ID of where it was pressed
 function checkKey(event, id) {
   switch (event.key) {
