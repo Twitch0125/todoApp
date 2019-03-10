@@ -30,13 +30,13 @@
             <nav class="mdl-navigation" id="lists">
             </nav>
             <!-- temporary button... im tired of doing it in the console -->
-            <div style='width:50px; height:50px;'>
-                <button onclick="localStorage.clear(), loadLists()">reset</button>
-            </div>
             <!-- create list button until I figure something better out -->
             <!-- FIXME: fix top of list creation area when showCreateLists() is called -->
             <button onclick="showCreateLists()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
                 Create List
+            </button>
+            <button onclick="deleteList()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                Delete Lists
             </button>
         </div>
         <!-- end drawer -->
@@ -81,8 +81,10 @@
                                             <input onkeyup="checkKey(event, 'taskName')" class="mdl-textfield__input"
                                                 type="text" id="taskName">
                                             <label class="mdl-textfield__label my-font">Task Name</label>
-
                                         </div>
+                                        <button onclick='createTask()' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary">
+                                            Create Task
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -91,7 +93,7 @@
                             Edit Tasks
                         </button>
                         <button onclick='saveTasks()' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary save-btn">
-                            Save
+                            Save Task Names
                         </button>
 
                     </div>

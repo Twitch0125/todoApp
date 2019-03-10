@@ -11,11 +11,6 @@ class List {
     task.id = this.tasks.indexOf(task); //id is used to access task in tasks array
     console.log(`task named: ${task.name} has id: ${task.id}`);
   }
-  deleteTask(task) {
-    console.log(`removing task by id: ${task.id}`);
-    this.tasks.splice(task.id);
-    console.log(`task removed. `);
-  }
 }
 
 class Task {
@@ -31,11 +26,12 @@ class Task {
     this.status = condition;
     console.log(`'status is now ${this.status}'`); //log current status
   }
-  rename(newName) {
-    console.log(`'name was ${this.name}'`);
-    this.name = newName;
-    console.log(`'name is now ${this.name}`);
-  }
+}
+//rename function
+function rename(task, newName) {
+  console.log(`'name was ${task.name}'`);
+  task.name = newName;
+  console.log(`'name is now ${task.name}`);
 }
 
 //function to show list creation div
@@ -80,6 +76,7 @@ function createTask() {
   //get current list
   let listName = $(".list-name").html();
   let list = JSON.parse(localStorage.getItem(`${listName}`));
+
   //log what task is being pushed to given list
   console.log(`pushing task: ${newTask.name} into list ${list.name}`);
   //assign task's ID, which is where its located in the array
@@ -100,7 +97,7 @@ function createTask() {
     .parent()
     .attr(
       "class",
-      "mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-focused"
+      "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
     );
 }
 
@@ -152,27 +149,79 @@ function loadTasks() {
   //display tasks in current list in the task table
   for (let i = 0; i < list.tasks.length; i++) {
     $(".task-table").append(`
-    <tr class="task">
-      <td class="mdl-data-table__cell--non-numeric">${list.tasks[i].name}</td>
-      </tr>
-    `);
+    <tr class="task" id="${i}">
+    <td class="mdl-data-table__cell--non-numeric">${list.tasks[i].name}</td>
+  </tr>`);
+  $(`.task:nth-of-type(${i + 2})`).append(`
+  <span onclick=deleteTask(${i}) class="mdl-chip">
+  <span class="mdl-chip__text"></span>
+  <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></a>
+</span>
+  `)
+
   }
 }
 
-function editTasks() {
-  //add the "deleteable chip" from MDL to each task item
-  $(".task").append(`
-  <span onclick="deleteTask()" class="mdl-chip">
-  <span class="mdl-chip__text">Delete</span>
-  <a href="#" class="mdl-chip__action"><i class="material-icons">cancel</i></a>
-</span>
-    `);
-  //make tasks editable
-  $(".task").attr("contenteditable", "true");
+function deleteTask(taskId) {
+  console.log("taskId is", taskId);
 
-  //show "save" button.
-  $(".save-btn").css("display", "inline");
+  //get current list
+  let listName = $(".list-name").html();
+  let list = JSON.parse(localStorage.getItem(`${listName}`));
+  list.tasks.splice(taskId, 1);
+  console.log(`task removed. `);
+  let myJSON = JSON.stringify(list);
+  localStorage.setItem(listName, myJSON);
+
+  loadLists();
 }
+
+function deleteList(){
+  localStorage.clear();
+}
+
+function editTasks() {
+  if ($(".save-btn").hasClass("visible")) {
+    return 0;
+  } else {
+    //show the "deleteable chip" from MDL for each task item
+    $(".mdl-chip").addClass("visible");
+    //make tasks editable
+    $(".mdl-data-table__cell--non-numeric").attr("contenteditable", "true");
+    //show "save" button.
+    $(".save-btn").addClass("visible");
+  }
+}
+
+function saveTasks() {
+  console.log("saveTasks()");
+
+  $(".mdl-data-table__cell--non-numeric").attr("contenteditable", "false");
+  $(".mdl-chip").remove();
+  $(".save-btn").removeClass("visible");
+  $(".mdl-chip").removeClass("visible");
+  //get current list
+  let listName = $(".list-name").html();
+  let list = JSON.parse(localStorage.getItem(`${listName}`));
+  //rename each task
+  for (let i = 0; i < list.tasks.length; i++) {
+    //get task name
+    console.log("getting task:", $(`#${i}`).text());
+
+    let name = $(`#${i}`).text();
+    let task = list.tasks[i];
+    console.log("task is ", task);
+    //rename task with the new name
+    rename(task, name);
+  }
+  //store list in localStorage
+  let myJSON = JSON.stringify(list);
+  localStorage.setItem(listName, myJSON);
+  //refresh tasks
+  loadTasks();
+}
+
+
 
 //checks if ENTER was pressed, and the ID of where it was pressed
 function checkKey(event, id) {
@@ -199,6 +248,19 @@ var data = {
       })
     );
   },
-  actionText: "Undo",
+  actionText: " ",
+  timeout: 2500
+};
+
+var editData = {
+  message: "Hit Enter to Save Changes",
+  actionHandler: function() {
+    notification.MaterialSnackbar.showSnackbar(
+      (obj = {
+        message: "Undone"
+      })
+    );
+  },
+  actionText: " ",
   timeout: 2500
 };
