@@ -178,6 +178,7 @@ function deleteTask(taskId) {
 
 function deleteList(){
   localStorage.clear();
+  loadLists();
 }
 
 function editTasks() {
